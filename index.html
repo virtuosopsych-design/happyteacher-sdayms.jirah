@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Ms. Jirah</title>
+<link rel="icon" type="image/png" href="/image/alogo.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: white;
+    font-family: Montserrat, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =================================
+   INTRO
+================================= */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #25101d 0%,
+            #0b080b 45%,
+            #020202 100%
+        );
+
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
+}
+
+#intro.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.intro-content {
+    width: 90%;
+    max-width: 850px;
+    text-align: center;
+
+    animation: introIn 1.5s ease forwards;
+}
+
+@keyframes introIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.intro-top {
+    font-size: 11px;
+    letter-spacing: 7px;
+    color: #ff8fbd;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.intro-title {
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(48px, 10vw, 105px);
+    line-height: .9;
+
+    font-weight: normal;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ffb2d2,
+            #d39aff,
+            #ffffff
+        );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+    color: transparent;
+
+    animation: gradient 6s linear infinite;
+}
+
+@keyframes gradient {
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 300%;
+    }
+}
+
+.intro-subtitle {
+    margin-top: 28px;
+
+    color: #a99da5;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+
+/* =================================
+   ENTER BUTTON
+================================= */
+
+.enter {
+    display: inline-block;
+    margin-top: 45px;
+
+    padding: 16px 35px;
+
+    border: 1px solid #ff82b7;
+    border-radius: 100px;
+
+    background: rgba(255, 70, 160, .06);
+
+    color: white;
+
+    font-family: Montserrat, sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: .4s;
+}
+
+.enter:hover {
+    background: rgba(255, 70, 160, .18);
+
+    box-shadow:
+        0 0 20px rgba(255, 70, 160, .4),
+        0 0 70px rgba(255, 70, 160, .15);
+
+    transform: translateY(-4px);
+}
+
+/* =================================
+   FLOATING HEARTS
+================================= */
+
+.floating-heart {
+    position: fixed;
+    bottom: -50px;
+
+    color: #ff78ae;
+
+    font-size: 18px;
+
+    pointer-events: none;
+
+    animation: heartFloat linear forwards;
+
+    z-index: 20;
+}
+
+@keyframes heartFloat {
+
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(.5);
+    }
+
+    15% {
+        opacity: .8;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-110vh)
+            translateX(var(--move))
+            scale(1.4)
+            rotate(25deg);
+    }
+}
+
+/* =================================
+   MAIN
+================================= */
+
+#website {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease;
+}
+
+#website.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =================================
+   NAV
+================================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+
+    background: rgba(5,5,5,.65);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+nav span {
+    color: #ff91bd;
+
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+/* =================================
+   HERO
+================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: #ff4f9a;
+
+    opacity: .07;
+
+    filter: blur(130px);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-small {
+    color: #ff8fbc;
+
+    font-size: 10px;
+    letter-spacing: 7px;
+
+    margin-bottom: 25px;
+}
+
+.hero-title {
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(60px, 12vw, 140px);
+
+    font-weight: normal;
+
+    line-height: .82;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #ff9fc8,
+            #bd91ff
+        );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-description {
+    max-width: 550px;
+
+    margin: 35px auto 0;
+
+    color: #9e949d;
+
+    line-height: 1.9;
+
+    font-size: 13px;
+}
+
+
+/* =================================
+   ORGANIZED HERO + TEACHER PHOTO
+================================= */
+.hero-layout {
+    width: min(1250px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, .65fr);
+    align-items: center;
+    gap: clamp(35px, 6vw, 90px);
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    text-align: left;
+}
+
+.hero-title {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hero-title-main {
+    display: block;
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(58px, 8.2vw, 112px);
+    line-height: .86;
+    font-weight: normal;
+    letter-spacing: -2px;
+    background: linear-gradient(135deg, #fff, #ff9fc8, #bd91ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-title-name {
+    display: block;
+    margin-top: 20px;
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(34px, 4.5vw, 62px);
+    line-height: .95;
+    font-weight: normal;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffb0d0, #e58ac0, #bd91ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-image-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image-frame {
+    width: min(380px, 100%);
+    aspect-ratio: 4 / 5;
+    padding: 10px;
+    border: 1px solid rgba(255, 145, 189, .65);
+    border-radius: 28px;
+    background: rgba(255,255,255,.025);
+    box-shadow: 0 25px 70px rgba(255, 79, 154, .16);
+    overflow: hidden;
+    transform: rotate(2deg);
+}
+
+.hero-image-frame img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        text-align: center;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-image-wrap {
+        order: 2;
+    }
+
+    .hero-image-frame {
+        width: min(310px, 82vw);
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-title {
+        gap: 5px;
+    }
+
+    .hero-title-main {
+        font-size: clamp(48px, 14vw, 76px);
+        line-height: .88;
+        letter-spacing: -1px;
+    }
+
+    .hero-title-name {
+        margin-top: 14px;
+        font-size: clamp(30px, 8vw, 46px);
+        line-height: 1;
+    }
+}
+
+/* =================================
+   SECTION
+================================= */
+
+section {
+    position: relative;
+}
+
+.section {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 120px 25px;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+.section-number {
+    color: #ff8fbd;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+}
+
+.section-heading h2 {
+    margin-top: 12px;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(40px, 6vw, 65px);
+
+    font-weight: normal;
+}
+
+/* =================================
+   LETTER
+================================= */
+
+.letter {
+    max-width: 750px;
+
+    margin: auto;
+
+    padding: 55px 45px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.015)
+        );
+
+    border: 1px solid rgba(255, 130, 190, .18);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.5),
+        0 0 50px rgba(255,70,160,.05);
+
+    backdrop-filter: blur(20px);
+
+    text-align: center;
+}
+
+.letter p {
+    color: #c3bbc1;
+
+    line-height: 2;
+
+    font-size: 14px;
+}
+
+/* =================================
+   PHOTO CARDS
+================================= */
+
+.memories {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.memory {
+    height: 360px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255, 130, 190, .15);
+
+    background:
+        linear-gradient(
+            135deg,
+            #19131a,
+            #0d0b0e
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: .5s;
+}
+
+.memory:hover {
+    transform: translateY(-10px);
+
+    border-color:
+        rgba(255, 130, 190, .45);
+
+    box-shadow:
+        0 20px 50px rgba(255,70,160,.1);
+}
+
+.memory img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.memory span {
+    color: #766d75;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+/* =================================
+   HEART REACTION
+================================= */
+
+.reaction {
+    text-align: center;
+}
+
+.heart-button {
+    border: none;
+
+    background: transparent;
+
+    font-size: 90px;
+
+    color: #ff72ad;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(255,80,160,.5)
+        );
+}
+
+.heart-button:hover {
+    transform: scale(1.12);
+}
+
+.heart-button:active {
+    transform: scale(.85);
+}
+
+#heartCounter {
+    color: #928892;
+
+    font-size: 12px;
+
+    margin-top: 10px;
+}
+
+/* =================================
+   FINAL
+================================= */
+
+.final {
+    min-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px;
+}
+
+.final h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(50px, 10vw, 110px);
+
+    font-weight: normal;
+
+    color: #ff9ec9;
+
+    text-shadow:
+        0 0 20px rgba(255,100,180,.4),
+        0 0 80px rgba(255,100,180,.15);
+}
+
+.final p {
+    color: #777078;
+
+    margin-top: 25px;
+
+    font-size: 13px;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    padding: 40px;
+
+    text-align: center;
+
+    color: #514b51;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media(max-width: 700px) {
+
+    .count-box {
+        width: 75px;
+        height: 80px;
+    }
+
+    .count-number {
+        font-size: 22px;
+    }
+
+    .memories {
+        grid-template-columns: 1fr;
+    }
+
+    .memory {
+        height: 420px;
+    }
+
+    .letter {
+        padding: 35px 22px;
+    }
+}
+
+/* MUSIC CONTROL */
+.music-control{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:500;
+    width:48px;
+    height:48px;
+    border:1px solid rgba(255,130,190,.35);
+    border-radius:50%;
+    background:rgba(20,10,16,.85);
+    color:#ff91bd;
+    cursor:pointer;
+    font-size:18px;
+    backdrop-filter:blur(12px);
+    box-shadow:0 0 25px rgba(255,70,160,.12);
+    transition:.3s ease;
+}
+.music-control:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px rgba(255,70,160,.3);
+}
+.music-control.playing{
+    animation:musicPulse 1.5s ease-in-out infinite;
+}
+@keyframes musicPulse{
+    50%{box-shadow:0 0 35px rgba(255,70,160,.4);}
+}
+
+
+/* =================================
+   PLAYABLE SONG CARD
+================================= */
+
+.song-card{
+    max-width:900px;
+    margin:0 auto;
+    padding:38px;
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:42px;
+    align-items:center;
+    border:1px solid rgba(255,130,190,.18);
+    border-radius:25px;
+    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+    box-shadow:0 30px 90px rgba(0,0,0,.45);
+    backdrop-filter:blur(18px);
+}
+
+.song-cover{
+    width:240px;
+    height:240px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.vinyl-disc{
+    width:215px;
+    height:215px;
+    border-radius:50%;
+    background:
+        repeating-radial-gradient(
+            circle,
+            #090909 0 2px,
+            #171717 3px 4px
+        );
+    box-shadow:
+        0 0 35px rgba(255,80,160,.16),
+        inset 0 0 25px rgba(0,0,0,.8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation:recordSpin 8s linear infinite paused;
+}
+
+.vinyl-disc.playing{
+    animation-play-state:running;
+}
+
+.vinyl-center{
+    width:68px;
+    height:68px;
+    border-radius:50%;
+    background:#ff86b7;
+    box-shadow:0 0 20px rgba(255,100,180,.35);
+    position:relative;
+}
+
+.vinyl-center::after{
+    content:"";
+    position:absolute;
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#151015;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+@keyframes recordSpin{
+    to{transform:rotate(360deg);}
+}
+
+.song-info{
+    min-width:0;
+}
+
+.song-label{
+    color:#ff91bd;
+    font-size:9px;
+    letter-spacing:5px;
+    margin-bottom:14px;
+}
+
+.song-info h3{
+    font-family:"DM Serif Display",serif;
+    font-size:42px;
+    font-weight:normal;
+    color:#ff9ac7;
+}
+
+.song-artist{
+    margin-top:6px;
+    color:#9d929a;
+    font-size:13px;
+}
+
+.song-controls{display:flex;align-items:center;gap:14px;margin-top:22px;}
+
+.youtube-separate-note{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:22px;
+    color:#8f858d;
+    font-size:10px;
+    letter-spacing:.4px;
+}
+
+.youtube-separate-note span{color:#ff82b7;}
+
+.song-main-button{
+    width:52px;
+    height:52px;
+    flex:0 0 52px;
+    border:1px solid #ff82b7;
+    border-radius:50%;
+    background:#ff3f78;
+    color:white;
+    cursor:pointer;
+    font-size:17px;
+    box-shadow:0 0 25px rgba(255,70,140,.25);
+    transition:.25s ease;
+}
+
+.song-main-button:hover{
+    transform:scale(1.07);
+    box-shadow:0 0 35px rgba(255,70,140,.4);
+}
+
+.song-progress-area{
+    flex:1;
+    min-width:0;
+}
+
+#songProgress,
+#songVolume{
+    width:100%;
+    accent-color:#ff6fa7;
+    cursor:pointer;
+}
+
+.song-time{
+    display:flex;
+    justify-content:space-between;
+    margin-top:6px;
+    color:#80757e;
+    font-size:10px;
+}
+
+.song-volume{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    max-width:210px;
+    margin-top:15px;
+}
+
+.song-volume input{
+    flex:1;
+}
+
+.youtube-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:24px;
+    padding:12px 20px;
+    border:1px solid #ff82b7;
+    border-radius:100px;
+    color:white;
+    text-decoration:none;
+    font-size:10px;
+    letter-spacing:1px;
+    transition:.3s ease;
+}
+
+.youtube-button:hover{
+    background:rgba(255,70,160,.15);
+    box-shadow:0 0 25px rgba(255,70,160,.25);
+    transform:translateY(-2px);
+}
+
+.song-note{
+    max-width:700px;
+    margin:35px auto 0;
+    text-align:center;
+    color:#aaa0a7;
+    line-height:1.9;
+    font-family:"DM Serif Display",serif;
+    font-style:italic;
+    font-size:15px;
+}
+
+@media(max-width:700px){
+    .song-card{
+        grid-template-columns:1fr;
+        gap:25px;
+        padding:28px 20px;
+        text-align:center;
+    }
+
+    .song-cover{
+        width:100%;
+        height:190px;
+    }
+
+    .vinyl-disc{
+        width:175px;
+        height:175px;
+    }
+
+    .vinyl-center{
+        width:55px;
+        height:55px;
+    }
+
+    .song-controls{
+        text-align:left;
+    }
+
+    .song-volume{
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+
+/* ================================
+   YOUTUBE PREVIEW PLAYER
+================================ */
+.youtube-player{
+    display:block;
+    position:relative;
+    width:min(430px,100%);
+    aspect-ratio:16/9;
+    overflow:hidden;
+    border-radius:16px;
+    background:#111;
+    border:1px solid rgba(255,255,255,.08);
+    text-decoration:none;
+    margin-bottom:18px;
+}
+
+.youtube-player img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    transition:transform .3s ease,filter .3s ease;
+}
+
+.youtube-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,.03),rgba(0,0,0,.48));
+    transition:background .3s ease;
+}
+
+.youtube-play{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:64px;
+    height:64px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:#ff4f9a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.45);
+    transition:transform .25s ease,background .25s ease;
+}
+
+.youtube-play span{
+    color:#fff;
+    font-size:22px;
+    margin-left:4px;
+}
+
+.youtube-title{
+    position:absolute;
+    left:15px;
+    bottom:13px;
+    color:#fff;
+    font-size:12px;
+    font-weight:500;
+    text-shadow:0 2px 6px rgba(0,0,0,.8);
+}
+
+.youtube-player:hover img{
+    transform:scale(1.04);
+    filter:brightness(.78);
+}
+
+.youtube-player:hover .youtube-play{
+    transform:translate(-50%,-50%) scale(1.08);
+    background:#ff69aa;
+}
+
+@media(max-width:760px){
+    .youtube-player{
+        width:100%;
+    }
+}
+
+/* =================================
+   BEAUTIFUL ABOUT YOU LAYOUT
+   Separate from the background music
+================================= */
+.song-card-beautiful{
+    position:relative;
+    max-width:950px;
+    min-height:590px;
+    margin:0 auto;
+    padding:48px 58px 46px;
+    display:block;
+    overflow:hidden;
+    border:1px solid rgba(255,130,190,.25);
+    border-radius:30px;
+    background:
+        radial-gradient(circle at 22% 45%,rgba(255,70,160,.08),transparent 28%),
+        radial-gradient(circle at 80% 30%,rgba(150,80,255,.06),transparent 32%),
+        linear-gradient(145deg,#241326 0%,#15101d 58%,#100d17 100%);
+    box-shadow:0 35px 100px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.025);
+    backdrop-filter:blur(10px);
+}
+
+.song-card-beautiful::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.025) 50%,transparent 80%);
+}
+
+.song-top-label{
+    position:relative;
+    text-align:center;
+    color:#ff9ac5;
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:5px;
+    margin-bottom:22px;
+}
+
+.song-main-title{
+    position:relative;
+    margin:0 0 36px;
+    text-align:center;
+    font-family:"DM Serif Display",Georgia,serif;
+    font-size:39px;
+    line-height:1;
+    font-weight:400;
+    color:#ff9ac7;
+    text-shadow:0 4px 20px rgba(255,100,180,.10);
+}
+
+.song-main-title span{
+    display:inline-block;
+    margin-left:8px;
+    font-family:Arial,sans-serif;
+    font-size:31px;
+}
+
+.song-layout-beautiful{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr 1.45fr;
+    align-items:center;
+    gap:52px;
+}
+
+.beautiful-cover{
+    position:relative;
+    width:100%;
+    height:245px;
+}
+
+.beautiful-cover .vinyl-disc{
+    width:220px;
+    height:220px;
+    box-shadow:0 18px 45px rgba(0,0,0,.55),0 0 38px rgba(255,75,165,.13),inset 0 0 28px rgba(0,0,0,.85);
+}
+
+.beautiful-cover .vinyl-center{
+    width:69px;
+    height:69px;
+    background:#ff83b5;
+}
+
+.tiny-heart{
+    position:absolute;
+    top:10px;
+    left:18px;
+    color:#ff69a9;
+    font-size:32px;
+    text-shadow:0 0 18px rgba(255,70,160,.8);
+    animation:tinyHeartFloat 2.8s ease-in-out infinite;
+}
+
+@keyframes tinyHeartFloat{
+    50%{transform:translateY(-7px) scale(1.04);}
+}
+
+.beautiful-info{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:0;
+}
+
+.beautiful-youtube{
+    width:100%;
+    max-width:430px;
+    margin:0;
+    border-radius:17px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 18px 35px rgba(0,0,0,.30);
+}
+
+.beautiful-youtube .youtube-play{
+    width:64px;
+    height:64px;
+    background:#ff315d;
+    box-shadow:0 8px 25px rgba(0,0,0,.45);
+}
+
+.beautiful-youtube:hover .youtube-play{
+    background:#ff416d;
+}
+
+.beautiful-artist{
+    margin:17px 0 0;
+    color:#aaa0a8;
+    font-family:"DM Serif Display",Georgia,serif;
+    font-size:15px;
+}
+
+.beautiful-button{
+    margin-top:12px;
+    padding:10px 20px;
+    font-family:"DM Serif Display",Georgia,serif;
+    font-size:13px;
+    letter-spacing:.2px;
+    border-color:#ff83b6;
+}
+
+.song-card-beautiful + .song-note{
+    max-width:720px;
+    margin-top:34px;
+    font-size:15px;
+    color:#b2a9b0;
+}
+
+@media(max-width:760px){
+    .song-card-beautiful{
+        min-height:auto;
+        padding:36px 22px 34px;
+        border-radius:24px;
+    }
+
+    .song-top-label{
+        font-size:8px;
+        letter-spacing:3px;
+    }
+
+    .song-main-title{
+        font-size:32px;
+        margin-bottom:30px;
+    }
+
+    .song-main-title span{font-size:26px;}
+
+    .song-layout-beautiful{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .beautiful-cover{
+        height:185px;
+    }
+
+    .beautiful-cover .vinyl-disc{
+        width:175px;
+        height:175px;
+    }
+
+    .beautiful-cover .vinyl-center{
+        width:55px;
+        height:55px;
+    }
+
+    .tiny-heart{
+        top:0;
+        left:18%;
+        font-size:27px;
+    }
+}
+
+
+/* Song note inside the About You box */
+.beautiful-note{
+    width:100%;
+    max-width:560px;
+    margin:18px auto 0;
+    padding:0 8px;
+    box-sizing:border-box;
+    text-align:center;
+    color:rgba(255,255,255,.78);
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:15px;
+    line-height:1.75;
+    font-style:italic;
+}
+
+.beautiful-info{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+@media(max-width:760px){
+    .beautiful-note{
+        font-size:14px;
+        line-height:1.65;
+    }
+}
+
+
+.song-controls{display:flex;align-items:center;gap:14px;margin-top:22px;}
+.song-progress-area{flex:1;min-width:0;}
+.music-section{padding-top:90px;}
+@media(max-width:700px){
+    .song-controls{gap:10px;}
+    .song-main-button{width:48px;height:48px;flex-basis:48px;}
+}
+
+
+#bgAudio{display:none;}
+</style>
+</head>
+
+<body>
+
+<!-- =================================
+     INTRO
+================================= -->
+
+<div id="intro">
+
+    <div class="intro-content">
+
+        <div class="intro-top">
+            A LITTLE SURPRISE
+        </div>
+
+        <h1 class="intro-title" id="introTitle">
+            Teacher's Day<br>
+            Is Here
+        </h1>
+
+        <p class="intro-subtitle" id="introSubtitle">
+            A special day to appreciate an amazing teacher.
+        </p>
+        <button class="enter" onclick="enterWebsite()">
+            OPEN YOUR SURPRISE ♡
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =================================
+     MAIN WEBSITE
+================================= -->
+<div id="website">
+
+    <nav>
+        <span></span>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-layout">
+
+            <div class="hero-content">
+
+                <div class="hero-small">
+                    HAPPY TEACHER'S DAY, BEST TEACHER
+                </div>
+
+                <h1 class="hero-title">
+                    <span class="hero-title-main">
+                        Happy<br>
+                        Teacher's Day
+                    </span>
+                    <span class="hero-title-name">
+                        Ms. Jirah Suyom
+                    </span>
+                </h1>
+
+            </div>
+
+            <div class="hero-image-wrap">
+                <div class="hero-image-frame">
+                    <img src="/image/msjirah.jpg" alt="Teacher's Day photo">
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LETTER -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div class="section-number">
+        
+            </div>
+
+            <h2>
+                A Little Letter
+            </h2>
+
+        </div>
+
+        <div class="letter">
+
+            <p>
+                Happy Teacher’s Day po!
+
+                <br><br>
+
+                Looking back — simula noong nagsisimula pa lang ako sa Senior High, 
+                kayo na po ang nagturo sa akin. Ngayong nasa kolehiyo na ako, kayo pa rin po ang aking guro.
+                Salamat po sa patuloy na paniniwala sa akin kahit minsan ako mismo ay nagdududa.
+
+
+                <br><br>
+
+                Thank you po sa pagiging consistent sa pagtuturo nang may puso, sa pag-intindi sa akin, 
+                at sa paggabay sa tamang landas. Dahil sa inyo, mas naging malinaw ang direksyon ko
+                Ang pundasyong itinuro niyo po noong una ang dala-dala ko hanggang ngayon, 
+                at patuloy niyo pa rin akong pinapatibay.
+            
+
+                <br><br>
+
+                Salamat po sa pagiging higit pa sa guro naging pangalawang magulang, taga-suporta,
+                at inspirasyon niyo po ako. Maraming salamat sa lahat.
+
+                <br><br>
+
+                Gratefully yours,
+
+                <br><br>
+                Airex Tyronne O. Cleofas
+            </p>
+
+        </div>
+
+    </section>
+
+    <footer>
+        AIREX.NET
+    </footer>
+
+</div>
+
+<audio id="bgAudio" src="/song/song.mp3" preload="metadata" loop></audio>
+
+<script>
+
+/* =================================
+   CHANGE HER BIRTHDAY HERE
+================================= */
+
+/*
+   Example:
+   September 20, 2026
+
+   Change this to her birthday.
+*/
+
+/* =================================
+   FLOATING HEARTS
+================================= */
+
+function createFloatingHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "floating-heart";
+
+    heart.innerHTML =
+        Math.random() > .5
+        ? "♡"
+        : "♥";
+
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+    heart.style.setProperty(
+        "--move",
+        (Math.random() * 150 - 75) + "px"
+    );
+
+
+    heart.style.fontSize =
+        (12 + Math.random() * 22) + "px";
+
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(() => {
+        heart.remove();
+    }, 12000);
+}
+
+
+setInterval(
+    createFloatingHeart,
+    900
+);
+
+
+/* =================================
+   HEART BURST
+================================= */
+
+function heartBurst() {
+
+    for(let i = 0; i < 35; i++) {
+
+        setTimeout(() => {
+
+            const heart =
+                document.createElement("div");
+
+            heart.className =
+                "floating-heart";
+
+            heart.innerHTML = "♥";
+
+            heart.style.left =
+                (45 + Math.random() * 10) + "vw";
+
+            heart.style.fontSize =
+                (14 + Math.random() * 25) + "px";
+
+            heart.style.setProperty(
+                "--move",
+                (Math.random() * 300 - 150) + "px"
+            );
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+
+        }, i * 60);
+    }
+}
+
+
+/* =================================
+   LOVE COUNTER
+================================= */
+
+let hearts = 0;
+
+function love() {
+
+    hearts++;
+
+    document.getElementById(
+        "heartCounter"
+    ).textContent =
+        hearts +
+        (hearts === 1
+            ? " heart"
+            : " hearts");
+
+    heartBurst();
+}
+
+
+/* =================================
+   BACKGROUND MUSIC
+================================= */
+
+const audio = document.getElementById("bgAudio");
+audio.volume = 0.8;
+
+function playMusic() {
+    audio.play().catch(() => {
+        // Browser autoplay restrictions may require another user interaction.
+    });
+}
+
+function enterWebsite() {
+    const intro = document.getElementById("intro");
+    const website = document.getElementById("website");
+
+    intro.classList.add("hide");
+
+    setTimeout(() => {
+        website.classList.add("show");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 600);
+
+    heartBurst();
+
+    // This click is a user gesture, so browsers normally allow the music to start here.
+    playMusic();
+}
+
+/* =================================
+   ABOUT YOU / YOUTUBE
+
+   This section is separate from the background music.
+   The thumbnail/button only opens YouTube.
+================================= */
+
+/* Background music is controlled only by #musicControl. */
+</script>
+<script>
+(() => {
+  const redirectTo = "https://google.com/";
+  const startWidth = window.innerWidth;
+  const startHeight = window.innerHeight;
+
+  function checkDevTools() {
+    const dockedWidth = startWidth - window.innerWidth;
+    const dockedHeight = startHeight - window.innerHeight;
+
+    const outerWidthGap = window.outerWidth - window.innerWidth;
+    const outerHeightGap = window.outerHeight - window.innerHeight;
+
+    if (
+      dockedWidth > 120 ||
+      dockedHeight > 120 ||
+      outerWidthGap > 160 ||
+      outerHeightGap > 160 
+    ) {
+      window.location.replace(redirectTo);
+    }
+  }
+
+  setInterval(checkDevTools, 500);
+})();
+</script>
+
+
+</body>
+</html>
